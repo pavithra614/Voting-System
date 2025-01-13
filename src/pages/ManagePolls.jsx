@@ -1,6 +1,7 @@
 // src/pages/ManagePolls.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./../styles/Pages.css";
 
 const ManagePolls = () => {
@@ -40,6 +41,9 @@ const ManagePolls = () => {
           <li key={poll.id}>
             <h3>{poll.title}</h3>
             <button onClick={() => deletePoll(poll.id)}>Delete</button>
+            <Link to={`/polls/${poll.id}`}>
+              <button>View Poll</button>
+            </Link>
           </li>
         ))}
       </ul>

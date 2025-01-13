@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use("/users", usersRoutes);
-app.use("/polls", pollRoutes);
+app.use("/polls", pollRoutes); // Updated route for managing polls
 app.use("/votes", votesRoutes);
 
 // Error Handling Middleware

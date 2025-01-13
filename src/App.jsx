@@ -14,6 +14,7 @@ import './App.css';
 import CreatePoll from "./pages/CreatePoll";
 import ManagePolls from "./pages/ManagePolls";
 import ViewResults from "./pages/ViewResults";
+import PollDetailPage from "./pages/PollDetailPage";
 
 const App = () => {
   return (
@@ -25,12 +26,13 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/polls" element={<PollsListPage />} />
-          <Route path="/polls/:pollId" element={<VotingPage />} />
+          <Route path="/polls/:pollId/vote" element={<VotingPage />} />
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/admin-dashboard" element={<AdminDashboard/>} />
           <Route path="/Create-Poll" element={< CreatePoll />} />
           <Route path="/View-Results" element={< ViewResults />} />
           <Route path="/manage-polls" element={< ManagePolls />} />
+          <Route path="/polls/:pollId" element={<PollDetailPage />} />
         </Routes>
       </main>
       <Footer />

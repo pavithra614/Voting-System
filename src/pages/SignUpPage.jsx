@@ -10,9 +10,13 @@ const SignUpPage = () => {
   });
 
   const [message, setMessage] = useState("");
+  const [error, setError] = useState(""); // For specific error messages
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Log the form data being sent to the server
+    console.log("Sending data to backend:", formData);
 
     try {
       // Send the form data to your backend API
@@ -20,11 +24,14 @@ const SignUpPage = () => {
 
       // Handle success response
       setMessage(response.data.message); // Message from the backend
+      setError(""); // Clear any previous error messages
       console.log(response.data.message);
     } catch (error) {
       // Handle error response
-      setMessage(error.response?.data?.message || "Error signing up"); // Handle error gracefully
-      console.error(error);
+      // Check if a specific error message exists
+      setMessage(""); // Clear any previous success messages
+      setError(error.response?.data?.message || "Error signing up");
+      console.error("Sign Up Error:", error.response?.data);
     }
   };
 
@@ -52,7 +59,9 @@ const SignUpPage = () => {
         </select>
         <button type="submit">Sign Up</button>
       </form>
-      {message && <p>{message}</p>} {/* Display the message here */}
+
+      {message && <p style={{ color: "green" }}>{message}</p>} {/* Display success message */}
+      {error && <p style={{ color: "red" }}>{error}</p>} {/* Display error message */}
     </div>
   );
 };
