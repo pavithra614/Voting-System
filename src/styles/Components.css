@@ -1,0 +1,21 @@
+/* src/styles/Components.css */
+.poll-card, .voting-form, .real-time-results {
+    border: 1px solid #ddd;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .poll-card h3, .voting-form h3 {
+    margin: 10px 0;
+  }
+  
+  .poll-card button {
+    background-color: #28a745;
+  }
+  
+  .real-time-results p {
+    margin: 5px 0;
+  }
+  
